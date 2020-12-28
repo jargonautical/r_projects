@@ -1,0 +1,160 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+# read in the dataset
+mydata <- read.csv("~/R projects/cike/pop_sk.csv", header = TRUE)
+```
+
+```{r}
+# view the dataset
+mydata
+```
+
+```{r}
+# look at the column headings
+names(mydata)
+```
+
+```{r}
+# look at the dimensions (number of rows and columns)
+dim(mydata)
+```
+
+```{r}
+# the type of dataset
+class(mydata)
+```
+
+```{r}
+#look at the first few rows
+head(mydata, 5)
+```
+
+```{r}
+# summary statistics
+summary(mydata)
+```
+
+```{r}
+# a simple bar chart
+barplot(height=mydata$X1996, names=mydata$Age)
+```
+
+```{r}
+# remove a row (the outlier 'All Ages" row at the beginning)
+# data_frame = data_frame[-1,]
+mydata = mydata[-1,]
+
+# try making the bar chart again
+barplot(height=mydata$X1996, names=mydata$Age)
+```
+
+```{r}
+summary(mydata)
+```
+
+```{r}
+# somew new plot types - needs ggplot library (assuming you have it installed)
+library(ggplot2)
+```
+
+```{r}
+# requires the data to be structured a little differently
+mydata <- read.csv("~/R projects/cike/pop_sk2.csv", header = TRUE)
+```
+
+```{r}
+mydata
+```
+
+```{r}
+# Stacked
+ggplot(mydata, aes(fill=Age, y=Value, x=Year)) + 
+  geom_bar(position="stack", stat="identity") +
+  theme(legend.position="none")
+```
+
+```{r}
+# stacked as %
+ggplot(mydata, aes(fill=Age, y=Value, x=Year)) + 
+  geom_bar(position="fill", stat="identity") +
+  theme(legend.position="none")
+```
+
+```{r}
+# whole dataset - 24 years
+mydata <- read.csv("~/R projects/cike/pop_sk3.csv", header = TRUE) 
+```
+
+```{r}
+# small multiples
+ggplot(data=mydata, aes(x=age_num,y=Value)) +
+  geom_bar(stat="identity") +
+  facet_wrap(~Year) +
+  ggtitle("Small Multiples") +
+  theme(plot.title = element_text(family="Trebuchet MS", face="bold", size=20, hjust=0, color="#555555")) +
+  theme(axis.text.x = element_text(angle=90)) 
+```
+
+```{r}
+# plot a slice (for year 1998)
+md1998 <- mydata[ which(mydata$Year=='1998'), ]
+plot(md1998$age_num, md1998$Value, main="my chart", type="l")
+```
+
+
+```{r}
+# plot a slice (for year 2008)
+md2008 <- mydata[ which(mydata$Year=='2008'), ]
+plot(md2008$age_num, md2008$Value, main="my chart", type="l")
+```
+
+```{r}
+# plot a slice (for year 2018)
+md2018 <- mydata[ which(mydata$Year=='2018'), ]
+plot(md2018$age_num, md2018$Value, main="my chart", type="l")
+```
+
+plot(x, sin(x),
+main="Overlaying Graphs",
+ylab="",
+type="l",
+col="blue")
+lines(x,cos(x), col="red")
+legend("topleft",
+c("sin(x)","cos(x)"),
+fill=c("blue","red")
+)
+
+```{r}
+# overlaying several series on the same plot
+plot(md1998$age_num, md1998$Value,
+main="Overlaying Graphs",
+ylab="",
+type="l",
+col="blue")
+lines(md2008$age_num, md2008$Value, col="red")
+lines(md2018$age_num, md2018$Value, col="green")
+legend("topleft",
+c("1998","2008","2018"),
+fill=c("blue","red", "green")
+)
+```
+

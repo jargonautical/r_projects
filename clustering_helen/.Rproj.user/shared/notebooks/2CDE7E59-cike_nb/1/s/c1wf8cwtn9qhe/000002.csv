@@ -1,0 +1,2 @@
+"0","# a simple bar chart"
+"0","barplot(height=mydata$X1996, names=mydata$Age)"

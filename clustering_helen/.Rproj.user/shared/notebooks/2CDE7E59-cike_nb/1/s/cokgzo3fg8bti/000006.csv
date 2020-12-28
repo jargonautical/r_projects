@@ -1,0 +1,7 @@
+"0","# small multiples"
+"0","ggplot(data=mydata, aes(x=age_num,y=Value)) +"
+"0","  geom_bar(stat=""identity"") +"
+"0","  facet_wrap(~Year) +"
+"0","  ggtitle(""Small Multiples"") +"
+"0","  theme(plot.title = element_text(family=""Trebuchet MS"", face=""bold"", size=20, hjust=0, color=""#555555"")) +"
+"0","  theme(axis.text.x = element_text(angle=90)) "

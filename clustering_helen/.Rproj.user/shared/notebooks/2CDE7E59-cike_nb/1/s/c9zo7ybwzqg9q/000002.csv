@@ -1,0 +1,2 @@
+"0","# whole dataset - 24 years"
+"0","mydata <- read.csv(""~/R projects/cike/pop_sk3.csv"", header = TRUE) "

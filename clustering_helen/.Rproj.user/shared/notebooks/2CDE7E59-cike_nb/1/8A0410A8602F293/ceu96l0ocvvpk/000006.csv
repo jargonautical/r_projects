@@ -1,0 +1,4 @@
+"0","# stacked as %"
+"0","ggplot(mydata, aes(fill=Age, y=Value, x=Year)) + "
+"0","  geom_bar(position=""fill"", stat=""identity"") +"
+"0","  theme(legend.position=""none"")"

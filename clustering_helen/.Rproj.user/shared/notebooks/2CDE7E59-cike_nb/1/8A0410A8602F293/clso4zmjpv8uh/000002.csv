@@ -1,0 +1,2 @@
+"0","# read in the dataset"
+"0","mydata <- read.csv(""~/R projects/cike/pop_sk.csv"", header = TRUE)"

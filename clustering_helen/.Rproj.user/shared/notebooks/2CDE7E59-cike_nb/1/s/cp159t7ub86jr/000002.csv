@@ -1,0 +1,6 @@
+"0","# remove a row"
+"0","# data_frame = data_frame[-1,]"
+"0","mydata = mydata[-1,]"
+"0",""
+"0","# try making the bar chart again"
+"0","barplot(height=mydata$X1996, names=mydata$Age)"

@@ -1,0 +1,6 @@
+"0","# overlaying several series on the same plot"
+"0","plot(md1998$age_num, md1998$Value,"
+"0","main=""Overlaying Graphs"","
+"0","ylab="""","
+"0","type=""l"","
+"0","col=""blue"")"

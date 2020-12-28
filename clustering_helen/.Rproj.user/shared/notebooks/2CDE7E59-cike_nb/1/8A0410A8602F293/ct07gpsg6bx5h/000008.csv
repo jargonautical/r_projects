@@ -1,0 +1,3 @@
+"0","# plot a slice (for year 2018) - as steps"
+"0","md2018 <- mydata[ which(mydata$Year=='2018'), ]"
+"0","plot(md2018$age_num, md2018$Value, main=""my chart"", type=""s"")"

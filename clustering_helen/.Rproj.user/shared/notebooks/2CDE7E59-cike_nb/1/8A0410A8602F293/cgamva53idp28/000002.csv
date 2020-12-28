@@ -1,0 +1,2 @@
+"0","# requires the data to be structured a little differently"
+"0","mydata <- read.csv(""~/R projects/cike/pop_sk2.csv"", header = TRUE)"
